@@ -1,20 +1,24 @@
 import { StatusBar } from 'expo-status-bar';
+import { useState } from 'react';
 import { Alert, Button, StyleSheet, Text, View } from 'react-native';
 
 export default function App() {
+
+  const [count, setCount] = useState<number>(0)
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
+      <Text>Count: { count }</Text>
       <View style={styles.contentButtons}>
         <Button
           title='      +1      '
-          onPress={()=> Alert.alert('mas uno :p')}
+          onPress={()=>setCount(value => value+1)}
         />
         <View style={styles.contentText}>
         </View>
         <Button
           title='      -1      '
-          onPress={()=> Alert.alert('mas uno :p')}
+          onPress={()=>setCount(value => value-1)}
         />
       </View>
       <StatusBar style="auto" />
